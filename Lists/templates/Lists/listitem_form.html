@@ -1,0 +1,23 @@
+<form method="post">{% csrf_token %}
+    <hgroup>
+        <h1>Dodaj item</h1>
+    </hgroup>
+    {% if form.errors and not form.non_field_errors %}
+            <p class="errorlist">Please correct the errors below and submit the form again.</p>
+    {% endif %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+            {% if not field.is_hidden %}
+                    <fieldset>
+                            {{ field.label_tag }}
+                            {% if field.help_text %}
+                                    <p class="helptext">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                            {{ field }}
+                    </fieldset>
+            {% else %}
+                    {{ field }}
+            {% endif %}
+    {% endfor %}
+    <button type="submit" value="OK">Zarejestruj się</button>
+</form>

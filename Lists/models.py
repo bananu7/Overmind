@@ -5,11 +5,15 @@ from django.contrib.auth.models import User
 
 class List(models.Model):
     title = models.CharField(max_length = 200)
-    priority = models.IntegerField(default = 0)
-    user = models.ForeignKey(User)
+    def __unicode__(self):
+        return self.title
 
 class ListItem(models.Model):
     checked = models.BooleanField()
     title = models.CharField(max_length = 400)
     parent_list = models.ForeignKey(List)
+    user = models.ForeignKey(User, null=True, blank=True)
+    priority = models.IntegerField(default = 0)
+    def __unicode__(self):
+        return self.title
 
