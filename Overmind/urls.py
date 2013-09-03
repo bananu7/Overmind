@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'Overmind.views.home', name='home'),
+    url(r'^$', 'Overmind.views.home', name='home'),
     # url(r'^Overmind/', include('Overmind.foo.urls')),
     url(r'^lists/', include('Lists.urls')),
 
