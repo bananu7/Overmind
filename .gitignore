@@ -1,0 +1,5 @@
+# Django sqlite file
+*.sqlite
+
+#Python compiled bytecode`
+*.pyc
