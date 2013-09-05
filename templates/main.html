@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+    {% endblock %}
+    <style>
+        body {
+            background-color: #9aa9b5;
+            padding: 10px 100px;
+        }
+        div {
+           /* border: 1px solid black;*/
+            margin: 0px;
+        }
+        #content {
+            padding: 20px;
+            display: block;
+            margin-top: -5px;
+            background-color: #ccc;
+        }
+        #center_content {
+            width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="center_content">
+      <header>
+          <h1>Overmind</h1>
+          <a href="/">Strona główna</a>
+      </header>
+      <div id="content">
+          {% block content %}
+          {% endblock %}
+      </div>
+      <footer>
+      </footer>
+    </div>
+</body>
+</html>
+
