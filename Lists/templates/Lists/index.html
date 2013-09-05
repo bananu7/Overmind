@@ -1,13 +1,10 @@
-<!doctype html>
-<html>
- <head>
- </head>
- <body>
-     <h1>Listy</h1>
-     <ul>
-     {% for list in lists %}
-         <li><a href="/lists/{{list.id}}/">{{ list.title }}</a></li>
-         {% endfor %}
-     </ul>
- </body>
-</html>
+{% extends "main.html" %}
+{% block content %}
+<h1>Listy</h1>
+<ul>
+{% for list in lists %}
+    <li><a href="/lists/{{list.id}}/">{{ list.title }}</a></li>
+{% endfor %}
+</ul>
+<a href="/lists/create/">Dodaj listę</a>
+{% endblock %}

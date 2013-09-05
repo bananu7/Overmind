@@ -3,3 +3,6 @@
 
 #Python compiled bytecode`
 *.pyc
+
+# Vim swap file
+*.swp
