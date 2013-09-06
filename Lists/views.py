@@ -66,4 +66,16 @@ class VoteView(CreateView):
             vote.save()
         return redirect('/lists/%s/' % self.kwargs['list_pk'])
 
+def updateChecks(request, list_pk):
+    if request.method == "POST":
+        for item_input in request.POST.items():
+            import re
+            test = re.match(r'item_(?P<item_id>\d+)', item_input[0])
+            if test:
+                item_id = test.group('item_id')
+                item = ListItem.objects.get(pk=item_id)
+                item.checked = item_input[1] == 'on'
+                item.save()
+    return redirect('/lists/%s/' % list_pk)
+
 

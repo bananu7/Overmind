@@ -2,6 +2,9 @@
 {% block content %}
 <a href="/lists/">Back</a>
 <h2>Lista - {{ list.title }}</h2>
+
+<form method='post' action='update_checks/'>
+{% csrf_token %}
 <table>
     <thead>
        <tr>
@@ -12,7 +15,14 @@
     </thead>
 {% for item in items %}
     <tr>
-        <td><input type="checkbox"></input></td>
+        <td>
+            <input type="hidden" name="item_{{ item.id }}" value=0 />
+            <input type="checkbox"
+            onchange = 'this.form.submit()'
+            {% if item.checked %} checked="checked" {% endif %}
+            name = "item_{{ item.id }}"
+            />
+        </td>
         <td>{{ item.title }}</td>
         <td>{{ item.score }}</td>
         {% if item.can_vote %}
@@ -21,5 +31,7 @@
     </tr>
     {% endfor %}
 </table>
-<a href='/lists/{{ list.id }}/add/'>Dodaj item</a>
+<br/>
+<a href='/lists/{{ list.id }}/add/'>Dodaj item</a><br />
+<input type="submit" value="Refresh Checks"/>
 {% endblock %}
