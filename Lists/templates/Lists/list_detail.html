@@ -15,6 +15,9 @@
         <td><input type="checkbox"></input></td>
         <td>{{ item.title }}</td>
         <td>{{ item.score }}</td>
+        {% if item.can_vote %}
+            <td><a href='vote/{{ item.id }}/'>Vote!</a></td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>

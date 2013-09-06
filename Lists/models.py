@@ -20,3 +20,5 @@ class ListItem(models.Model):
 class Vote(models.Model):
     user = models.ForeignKey(User)
     item = models.ForeignKey(ListItem)
+    class Meta:
+        unique_together = (('user', 'item'),)
