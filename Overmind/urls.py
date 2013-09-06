@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'Overmind.views.home', name='home'),
     # url(r'^Overmind/', include('Overmind.foo.urls')),
     url(r'^lists/', include('Lists.urls')),
+    url(r'^accountant/', include('Accountant.urls')),    
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

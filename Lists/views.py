@@ -15,6 +15,9 @@ class ListDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ListDetailView, self).get_context_data(**kwargs)
         context['items'] = ListItem.objects.filter(parent_list = context["list"].id)
+        for item in context['items']:
+            score = Vote.objects.filter(item = item.id).count()
+            item.score = score
         return context
 
 class ListCreateView(CreateView):
@@ -47,6 +50,7 @@ class ListItemCreateView(CreateView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
 
 
 

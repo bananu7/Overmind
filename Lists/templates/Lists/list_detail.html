@@ -3,11 +3,18 @@
 <a href="/lists/">Back</a>
 <h2>Lista - {{ list.title }}</h2>
 <table>
+    <thead>
+       <tr>
+           <td>Checked</td>
+           <td>Tytuł</td>
+           <td>Score</td>
+       </tr>
+    </thead>
 {% for item in items %}
     <tr>
         <td><input type="checkbox"></input></td>
         <td>{{ item.title }}</td>
-        <td><a href='#'>Wykonaj</a>
+        <td>{{ item.score }}</td>
     </tr>
     {% endfor %}
 </table>

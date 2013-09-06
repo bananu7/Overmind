@@ -17,3 +17,6 @@ class ListItem(models.Model):
     def __unicode__(self):
         return self.title
 
+class Vote(models.Model):
+    user = models.ForeignKey(User)
+    item = models.ForeignKey(ListItem)

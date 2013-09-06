@@ -3,3 +3,4 @@ from Lists.models import *
 
 admin.site.register(List)
 admin.site.register(ListItem)
+admin.site.register(Vote)

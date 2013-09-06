@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>Wydatki</h1>
+<ul>
+{% for spending in spendings %}
+    <li>{{ spending.title }}</li>
+{% endfor %}
+</ul>
+<!--a href="/lists/create/">Dodaj listę</a-->
+{% endblock %}
